@@ -1,0 +1,15 @@
+{% extends 'master.html' %}
+{% block contenido%}
+	<center><h4 class="alert alert-info"><strong>ELIMINAR MATERIA</strong></h4></center>
+	<br><br>
+	<h3>¿Está seguro de eliminar la materia de {{materia.nombre}}? </h3>
+	<br>
+	<P class="alert alert-danger"><span class="glyphicon glyphicon-alert"></span> Se eliminara todos los datos de la materia...</P>
+	<a href="../confirmacion_eliminar_materia?nombre={{materia.nombre}}" class="btn btn-success"> Sí, estoy seguro</a>
+	<a href="../">
+		 <button class="btn btn-danger">
+		 	No, por ahora 
+		 </button>
+	 </a>
+	</h3>
+{% endblock contenido %}

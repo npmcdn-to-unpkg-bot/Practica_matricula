@@ -1,0 +1,87 @@
+{% extends 'master.html' %}
+{% block contenido%}
+
+	<a href="crear_alumno">
+		<button class="alert alert-success">
+	 		<span class="glyphicon glyphicon-plus"></span>
+	 		<span class="glyphicon glyphicon-user"></span>	 		
+	 	</button>
+	</a>
+
+	<a href="crear_materias">
+		<button class="alert alert-success">
+	 		<span class="glyphicon glyphicon-plus"></span>
+	 		<span class="glyphicon glyphicon-text-color"></span>
+	 	</button>
+	</a>
+
+	<center>
+		<h4 class="alert alert-info">
+			<strong>LISTADO DE ALUMNOS MATRICULADOS</strong>
+		</h4>
+	</center>
+
+	<table class="table table-condensed">
+		<tr>
+			<th>CEDULA</th>
+			<th>NOMBRES</th>
+			<th>APELLIDOS</th>
+			<th>TELEFONO</th>
+			<th>DIRECCION</th>
+			<th>CORREO</th>
+			<th>OPCIONES</th>
+		</tr>
+	{% for al in alumno %}
+		<tr>
+			<td><a href="modificar_alumno?cedula={{al.cedula}}">{{al.cedula}}</a></td>
+			<td>{{al.nombre}}</td>
+			<td>{{al.apellido}}</td>
+			<td>{{al.telefono}}</td>
+			<td>{{al.direccion}}</td>
+			<td>{{al.correo}}</td>
+			<td>
+				<a href="eliminar_alumno?cedula={{al.cedula}}">
+					<button class="btn btn-link">
+	 					<span class="glyphicon glyphicon-remove-sign"></span>		
+	 				</button>
+	 			</a>
+	 		</td>
+	{% endfor %}
+		</tr>
+	</table>
+
+	<center>
+		<h4 class="alert alert-info">
+			<strong>LISTADO DE MATERIAS</strong>
+		</h4>
+	</center>
+
+	<table class="table table-condensed">
+		<tr>
+			<th>NOMBRE</th>
+			<th>NUMERO DE HORAS</th>
+			<th>CREDITOS</th>
+			<th>CUPOS</th>
+			<th>MATRICULADOS</th>
+			<th>OPCIONES</th>
+		</tr>
+
+	{% for mat in materia %}
+		<tr>
+			<td><a href="modificar_materia?nombre={{mat.nombre}}">{{mat.nombre}}</a></td>
+			<td>{{mat.horas}}</td>
+			<td>{{mat.creditos}}</td>
+			<td>{{mat.numcupos}}</td>
+			<td>{{mat.num_Estudiantes}}</td>
+			<td>
+				<a href="eliminar_materia?nombre={{mat.nombre}}">
+					<button class="btn btn-link">
+	 					<span class="glyphicon glyphicon-remove-sign"></span>		
+	 				</button>
+	 			</a>
+	 		</td>
+	{% endfor %}
+		</tr>
+	</table>
+
+{% endblock contenido %}
